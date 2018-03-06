@@ -1,0 +1,34 @@
+{
+  "name": "kik-pos",
+  "version": "1.0.0",
+  "description": "Point of Sales System in KikStart Stack",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kikstart/kik-pos.git"
+  },
+  "keywords": [
+    "POS",
+    "Business"
+  ],
+  "author": "Yasith Jayawardana",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kikstart/kik-pos/issues"
+  },
+  "homepage": "https://github.com/kikstart/kik-pos#readme",
+  "dependencies": {
+    "express": "^4.16.2",
+    "mongoose": "^5.0.8",
+    "vue": "^2.5.13"
+  },
+  "devDependencies": {
+    "electron": "^1.8.2",
+    "eslint": "^4.18.1",
+    "eslint-plugin-react": "^7.7.0"
+  }
+}
