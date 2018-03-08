@@ -1,8 +1,7 @@
-const express = require('express')
-const routerRegistry = require('../common').routerRegistry
+const { routerRegistry } = require('../_core')
 const consumerService = require('./consumer.service')
 
-const router = express.Router()
+const router = require('express').Router()
 
 router.get("/:id", function(req, res) {
     // Get consumer info and return it as JSON
@@ -30,4 +29,4 @@ router.get("/:id/orders", function(req, res) {
     res.send("Not Implemented");
 });
 
-routerRegistry.registerRouter('/consumers', router)
+module.exports = routerRegistry.register('/consumers', router)

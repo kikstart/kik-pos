@@ -1,4 +1,4 @@
-const serviceRegistry = require('../common').serviceRegistry
+const { serviceRegistry } = require('../_core')
 
 const getOrders = function () {
     return new Promise(resolve => {
@@ -6,8 +6,6 @@ const getOrders = function () {
     })
 }
 
-module.exports = {
+module.exports = serviceRegistry.register('orderService', {
     getOrders: getOrders
-}
-
-serviceRegistry.registerService('getOrders', getOrders)
+})

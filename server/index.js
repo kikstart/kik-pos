@@ -1,17 +1,11 @@
-const express = require('express')
-const routerRegistry = require('./common').routerRegistry
+const { loader, routerRegistry } = require('./_core')
+
+loader.loadFiles()
 const config = require('./config')
 
-const loadModules = function () {
-    config.activeModules.forEach(moduleName => {
-        require(`./${moduleName}`)
-    });
-}
-
 const start = function () {
-    loadModules()
-    const app = express()
-    app.use('/api', routerRegistry.getApiRouter())
+    const app = require('express')()
+    app.use('/api', routerRegistry.apiRouter)
     app.listen(config.port)
 }
 

@@ -1,11 +1,10 @@
-const express = require('express')
-const routerRegistry = require('../common').routerRegistry
+const { routerRegistry } = require('../_core')
 
-const router = express.Router()
+const router = require('express').Router()
 
-router.post("/", function(req, res) {
+router.post("/", function (req, res) {
     // Get user and return in JSON
     res.send("Not Implemented");
 })
 
-routerRegistry.registerRouter('/auth', router)
+module.exports = routerRegistry.register('/auth', router)
