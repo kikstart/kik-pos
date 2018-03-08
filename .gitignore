@@ -60,3 +60,5 @@ typings/
 # DS storage
 .DS_Store
 
+#IDE files
+.idea
