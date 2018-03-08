@@ -1,16 +1,10 @@
-// Configuration
-const config = require("./config");
-
 // Electron
-const {app, BrowserWindow} = require("electron");
-const path = require("path");
-const url = require("url");
+const {app, BrowserWindow} = require("electron")
+const path = require("path")
+const url = require("url")
 
 // Start Express API on Server Port
-var express = require("express")();
-let api = require("./api/index");
-express.use("/", api);
-express.listen(config.server_port);
+require('./server').start()
 
 let win;
 

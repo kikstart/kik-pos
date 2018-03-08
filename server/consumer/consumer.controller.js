@@ -1,4 +1,8 @@
-var router = require("express").Router();
+const express = require('express')
+const routerRegistry = require('../common').routerRegistry
+const consumerService = require('./consumer.service')
+
+const router = express.Router()
 
 router.get("/:id", function(req, res) {
     // Get consumer info and return it as JSON
@@ -20,4 +24,10 @@ router.patch("/:id", function(req, res) {
     res.send("Not Implemented");
 });
 
-module.exports = router;
+router.get("/:id/orders", function(req, res) {
+    // Get consumer info and return it as JSON
+    consumerService.getOrders()
+    res.send("Not Implemented");
+});
+
+routerRegistry.registerRouter('/consumers', router)

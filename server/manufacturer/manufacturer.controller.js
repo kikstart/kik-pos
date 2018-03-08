@@ -1,4 +1,7 @@
-var router = require("express").Router();
+const express = require('express')
+const routerRegistry = require('../common').routerRegistry
+
+const router = express.Router()
 
 router.get("/:id", function(req, res) {
     // Get manufacturer info and return in JSON
@@ -20,4 +23,4 @@ router.patch("/:id", function(req, res) {
     res.send("Not Implemented");
 });
 
-module.exports = router;
+routerRegistry.registerRouter('/manufacturers', router)
