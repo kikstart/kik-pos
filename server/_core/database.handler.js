@@ -1,14 +1,14 @@
-let sequelize;
+let sequelize
 
 const init = function (s) {
-    sequelize = s
+  sequelize = s
 }
 
 const defineModel = function (name, model) {
-    return sequelize.define(name, model)
+  return sequelize.define(name, model)
 }
 
 module.exports = {
-    init: init,
-    defineModel: defineModel
+  init: init,
+  defineModel: defineModel
 }
