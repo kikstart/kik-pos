@@ -4,31 +4,29 @@ const { userService } = require('../user')
 
 const router = require('express').Router()
 
-router.post("/", function (req, res) {
-    userService.getUserByCriteria({
-        username: req.body.username,
-        password: req.body.password
-    })
-        .then(user => {
-            if (user) {
-                authService.auth(user)
-                    .then(token => {
-                        res.status(200)
-                        res.send({
-                            token: token
-                        })
-                    })
-            } else {
-                res.status(404)
-                res.send()
-            }
+router.post("/", async function (req, res) {
+    try {
+        const user = await userService.getUserByCriteria({
+            username: req.body.username,
+            password: req.body.password
         })
-        .catch(err => {
-            res.status(500)
+
+        if (user) {
+            const token = authService.auth(user)
+            res.status(200)
             res.send({
-                err: err
+                token: token
             })
+        } else {
+            res.status(404)
+            res.send()
+        }
+    } catch (err) {
+        res.status(500)
+        res.send({
+            err: err
         })
+    }
 })
 
-module.exports = routerRegistry.register('/auth', router)
+module.exports = api.register('/auth', router)

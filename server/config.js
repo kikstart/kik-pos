@@ -16,9 +16,6 @@ module.exports = {
     },
     modules: [
         'auth',
-        'consumer',
-        'manufacturer',
-        'order',
         'user'
     ]
 }

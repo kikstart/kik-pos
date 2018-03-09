@@ -1,5 +1,5 @@
 require('dotenv').config({ path: `${__dirname}/.env` })
-const { loader, routerRegistry, databaseHandler } = require('./_core')
+const { loader, api, databaseHandler } = require('./_core')
 const config = require('./config')
 const Sequelize = require('sequelize')
 const bodyParser = require('body-parser')
@@ -18,7 +18,7 @@ loader.loadFiles()
 
 const app = require('express')()
 app.use(bodyParser.json())
-app.use('/api', routerRegistry.apiRouter)
+app.use('/api', api.router)
 app.listen(config.server.port, () => {
     console.log(`Server started on port: ${config.server.port}`)
 })

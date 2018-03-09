@@ -3,21 +3,20 @@ const { userService } = require('.')
 
 const router = require('express').Router()
 
-router.post("/", function(req, res) {
+router.post("/", async function (req, res) {
     // Add new user
-    userService.addUser(req.body)
-        .then(user => {
-            res.status(201)
-            res.send({
-                id: user.id
-            })
+    try {
+        const user = await userService.addUser(req.body)
+        res.status(201)
+        res.send({
+            id: user.id
         })
-        .catch(err => {
-            res.status(500)
-            res.send({
-                err: err
-            })
+    } catch (err) {
+        res.status(500)
+        res.send({
+            err: err
         })
+    }
 });
 
-module.exports = routerRegistry.register('/users', router)
+module.exports = api.register('/users', router)
