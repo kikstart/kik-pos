@@ -1,5 +1,5 @@
 module.exports = {
-    serviceRegistry: require('./service-registry'),
-    routerRegistry: require('./router-registry'),
+    api: require('./api'),
+    databaseHandler: require('./database.handler'),
     loader: require('./loader')
 }

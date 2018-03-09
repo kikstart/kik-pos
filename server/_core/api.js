@@ -9,5 +9,5 @@ const register = function (baseUrl, router) {
 
 module.exports = {
     register: register,
-    apiRouter: apiRouter
+    router: apiRouter
 }
