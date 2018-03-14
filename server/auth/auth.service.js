@@ -1,11 +1,10 @@
 const jwt = require('jsonwebtoken')
 const config = require('../config')
 
-const auth = async function (user) {
+const auth = function (user) {
   const token = jwt.sign({
-    type: 'bearer',
-    issuer: config.token.issuer
-  }, config.token.secret, { expiresIn: config.token.expiresIn })
+    type: 'bearer'
+  }, config.token.secret, { expiresIn: config.token.expiresIn, issuer: config.token.issuer })
 
   return token
 }

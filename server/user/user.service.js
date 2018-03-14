@@ -5,7 +5,7 @@ const addUser = function (user) {
 }
 
 const getUserByCriteria = async function (criteria) {
-  const user = User.findOne({ where: criteria })
+  const user = await User.findOne({ where: criteria })
   return user
 }
 
