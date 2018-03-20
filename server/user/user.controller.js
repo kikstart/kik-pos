@@ -1,5 +1,6 @@
 const { api } = require('../_core')
-const { userService } = require('.')
+
+const userService = require('./user.service')
 
 const router = require('express').Router()
 

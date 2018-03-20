@@ -1,6 +1,7 @@
 const { api } = require('../_core')
-const { authService } = require('.')
 const { userService } = require('../user')
+
+const authService = require('./auth.service')
 
 const router = require('express').Router()
 
