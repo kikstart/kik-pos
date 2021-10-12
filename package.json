@@ -31,7 +31,7 @@
     "sequelize": "^5.21.2"
   },
   "devDependencies": {
-    "electron": "^7.1.0",
+    "electron": "^11.5.0",
     "eslint": "^6.6.0",
     "eslint-config-standard": "^14.1.0",
     "eslint-plugin-import": "^2.18.2",
